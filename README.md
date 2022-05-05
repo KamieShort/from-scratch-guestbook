@@ -9,7 +9,7 @@ Use useContext to manage global application state
 
 # Plan
 
-Auth Page
+x Auth Page
 Home Page
 Private Routes should be its own component
 X add secrets to netlify and gitHub and yml
