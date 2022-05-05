@@ -1,7 +1,8 @@
 import { Route, Switch } from 'react-router-dom';
 import Auth from './views/Auth';
 import Home from './views/Home';
-import Guestbook from './views/Guestbook';
+import EntryList from './views/EntryList';
+import PrivateRoute from './components/PrivateRoute';
 
 export default function App() {
   return (
@@ -9,9 +10,11 @@ export default function App() {
       <Route path="/auth">
         <Auth />
       </Route>
-      <Route path="/guestbook">
-        <Guestbook />
-      </Route>
+
+      <PrivateRoute path="/entryList">
+        <EntryList />
+      </PrivateRoute>
+
       <Route path="/">
         <Home />
       </Route>

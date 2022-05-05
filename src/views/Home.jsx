@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <h1>Home</h1>
-      <Link to="/guestbook">Guest Book</Link>
+      <Link to="/entryList">Entry List</Link>
     </>
   );
 }
