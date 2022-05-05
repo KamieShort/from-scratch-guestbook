@@ -1,16 +1,18 @@
 # from-scratch-guestbook
 
-#Must Haves
+# Must Haves
+
 Use private routes to enforce auth
 Retain URL if redirected by auth failure
 Redirect to an auth page if no user detected
 Use useContext to manage global application state
 
-#Plan
+# Plan
+
 Auth Page
 Home Page
 Private Routes should be its own component
-add secrets to netlify and gitHub
+X add secrets to netlify and gitHub and yml
 
 Rubric
 
@@ -27,3 +29,5 @@ PrivateRoute component redirects to /login if no user is in context 1
 Guestbook entry uses the email stored in context for the name 2
 Behavior testing for EntryList view 2
 Deployed on Netlify with CI passing 1
+
+stretch goals: add and update entries
