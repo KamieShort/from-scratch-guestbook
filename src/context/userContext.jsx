@@ -1,13 +1,32 @@
 import React, { createContext, useContext, useState } from 'react';
+import { getUser, signUpUser, signInUser } from '../services/auth';
 
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState({ email: null });
+  const currentUser = getUser();
 
-  const login = (email, password) => {
-    if (email === 'kamie@alchemy.com' && password === 'test123') {
-      setUser({ email: 'kamie@alchemy.com' });
+  const [user, setUser] = useState(currentUser || { email: null });
+
+  const newUser = async (email, password) => {
+    const authedUser = await signUpUser(email, password);
+    if (authedUser) {
+      setUser(authedUser);
+    }
+  };
+
+  // const login = (email, password) => {
+  //   if (email === 'kamie@alchemy.com' && password === 'test123') {
+  //     setUser({ email: 'kamie@alchemy.com' });
+  //   } else {
+  //     throw new Error('Try again, invalid login credentials.');
+  //   }
+  // };
+
+  const login = async (email, password) => {
+    const authedUser = await signInUser({ email, password });
+    if (authedUser) {
+      setUser(authedUser);
     } else {
       throw new Error('Try again, invalid login credentials.');
     }
@@ -18,7 +37,7 @@ export function UserProvider({ children }) {
   };
 
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, login, logout, newUser }}>
       {children}
     </UserContext.Provider>
   );

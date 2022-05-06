@@ -5,9 +5,11 @@ import InputEntry from '../components/InputEntry';
 
 export default function EntryList() {
   const context = useUserHook();
+
   const [guestEntries, setGuestEntries] = useState([]);
   const [entry, setEntry] = useState('');
-  // const [content, setContent] = useState('');
+
+  const [submitted, setSubmitted] = useState({});
 
   useEffect(() => {
     const getGuestEntries = async () => {
@@ -17,8 +19,21 @@ export default function EntryList() {
     getGuestEntries();
   }, []);
 
+  useEffect(() => {
+    const getGuestEntries = async () => {
+      const data = await getEntries();
+      setGuestEntries(data);
+    };
+    getGuestEntries();
+  }, [submitted]);
+
   const submitEntry = async () => {
-    const addedEntry = await createEntry(entry);
+    const addedEntry = await createEntry({
+      userId: context.user.id,
+      content: entry,
+    });
+
+    setSubmitted(addedEntry);
 
     setGuestEntries((prevState) => [...prevState, addedEntry]);
     setEntry('');
