@@ -14,5 +14,8 @@ describe('EntryList', () => {
       </MemoryRouter>
     );
     screen.getByText(/loading/i);
+
+    const heading = await screen.findByText('Entry List');
+    expect(heading).toBeInTheDocument();
   });
 });

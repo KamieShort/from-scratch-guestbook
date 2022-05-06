@@ -8,8 +8,8 @@ Use useContext to manage global application state
 ## Plan
 
 x Auth Page
-Home Page
-Private Routes should be its own component
+x Home Page
+x Private Routes should be its own component
 X add secrets to netlify and gitHub and yml
 
 Rubric
@@ -25,7 +25,7 @@ x Root path / uses a PrivateRoute 2
 x /auth renders the Login view 1
 x PrivateRoute component redirects to /auth if no user is in context 1
 x Guestbook entry uses the email stored in context for the name 2
-Behavior testing for EntryList view 2
-Deployed on Netlify with CI passing 1
+x Behavior testing for EntryList view 2
+x Deployed on Netlify with CI passing 1
 
 stretch goals: add and update entries

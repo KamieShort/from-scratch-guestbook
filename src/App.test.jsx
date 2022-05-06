@@ -27,10 +27,10 @@ describe('App', () => {
     });
     expect(signUpHeading).toBeInTheDocument();
 
-    const signInEmail = screen.findByPlaceholderText('email here');
+    const signInEmail = screen.getByPlaceholderText('sign-in email here');
     userEvent.type(signInEmail, 'user@alchemy.com');
 
-    // const signInButton = screen.getByRole('button', { name: /go /i });
-    // userEvent.click(signInButton);
+    const signInButton = screen.getByRole('button', { name: /submit/i });
+    userEvent.click(signInButton);
   });
 });

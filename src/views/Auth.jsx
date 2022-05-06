@@ -39,7 +39,7 @@ export default function Auth() {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="email here"
+          placeholder="sign-in email here"
         />
         <input
           type="password"
@@ -57,7 +57,7 @@ export default function Auth() {
           type="email"
           value={newEmail}
           onChange={(e) => setNewEmail(e.target.value)}
-          placeholder=" email here"
+          placeholder="sign-up email here"
         />
 
         <input
@@ -66,7 +66,7 @@ export default function Auth() {
           onChange={(e) => setNewPassword(e.target.value)}
           placeholder="password here"
         />
-        <button type="submit">Go</button>
+        <button type="submit">Submit</button>
       </form>
     </>
   );
