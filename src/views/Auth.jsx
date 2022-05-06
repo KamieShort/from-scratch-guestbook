@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useUserHook } from '../context/userContext';
 
 export default function Auth() {
@@ -8,11 +8,13 @@ export default function Auth() {
   const location = useLocation();
   const context = useUserHook();
   const [error, setError] = useState('');
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     try {
       e.preventDefault();
       context.login(email, password);
+      history.push('/entryList');
     } catch (error) {
       setError(error.message);
     }

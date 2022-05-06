@@ -10,7 +10,7 @@ export default function PrivateRoute({ children, ...rest }) {
 
   return (
     <Route {...rest}>
-      {user.email ? (
+      {context.user.email ? (
         children
       ) : (
         <Redirect
