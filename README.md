@@ -14,10 +14,10 @@ X add secrets to netlify and gitHub and yml
 
 Rubric
 
-Share the user’s email using context 1
+x Share the user’s email using context 1
 x Use a custom hook to expose our context state for reading/writing 1
 x Use the children prop to render child components from within a Provider 1
-Use the user context state in at least 2 components (e.g. header and entry list) 2
+x Use the user context state in at least 2 components (e.g. header and entry list) 2
 x PrivateRoute component created 2
 x Login view created 2
 x EntryList view created 2

@@ -3,21 +3,25 @@ import Auth from './views/Auth';
 import Home from './views/Home';
 import EntryList from './views/EntryList';
 import PrivateRoute from './components/PrivateRoute';
+import Header from './components/Header';
 
 export default function App() {
   return (
-    <Switch>
-      <Route path="/auth">
-        <Auth />
-      </Route>
+    <div>
+      <Header />
+      <Switch>
+        <Route path="/auth">
+          <Auth />
+        </Route>
 
-      <PrivateRoute path="/entryList">
-        <EntryList />
-      </PrivateRoute>
+        <PrivateRoute path="/entryList">
+          <EntryList />
+        </PrivateRoute>
 
-      <Route path="/">
-        <Home />
-      </Route>
-    </Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </div>
   );
 }

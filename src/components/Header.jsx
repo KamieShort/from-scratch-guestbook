@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <div>Header</div>
-
-    //add user context here//
+    <div>
+      <h1>Welcome to the Guestbook!</h1>
+    </div>
   );
 }

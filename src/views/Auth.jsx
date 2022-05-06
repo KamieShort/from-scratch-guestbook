@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useUserHook } from '../context/userContext';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const location = useLocation();
   const context = useUserHook();
   const [error, setError] = useState('');
   const history = useHistory();
@@ -22,7 +21,6 @@ export default function Auth() {
 
   return (
     <>
-      <div>Auth</div>
       <form onSubmit={handleSubmit}>
         <input
           type="email"

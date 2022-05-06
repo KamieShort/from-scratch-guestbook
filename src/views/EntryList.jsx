@@ -6,7 +6,8 @@ export default function EntryList() {
 
   return (
     <div>
-      <h1>Guestbook Entry List</h1>
+      <h1>Entry List</h1>
+      <p>Signed in as {context.user.email}</p>
       <button onClick={context.logout}>Logout</button>
     </div>
   );
