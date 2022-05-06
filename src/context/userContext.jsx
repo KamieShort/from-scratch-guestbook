@@ -39,7 +39,7 @@ export const useUserHook = () => {
   const context = useContext(UserContext);
 
   if (context === undefined) {
-    // throw new Error('useUserHook must be used within UserProvider');
+    throw new Error('useUserHook must be used within UserProvider');
   }
   return context;
 };

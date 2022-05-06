@@ -3,12 +3,16 @@ import { MemoryRouter } from 'react-router-dom';
 import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 import App from './App';
+import userEvent from '@testing-library/user-event';
+import { UserProvider } from './context/userContext';
 
 describe('App', () => {
   it('Should render the list of entries', async () => {
     render(
       <MemoryRouter>
-        <App />
+        <UserProvider>
+          <App />
+        </UserProvider>
       </MemoryRouter>
     );
 
@@ -16,6 +20,6 @@ describe('App', () => {
     expect(heading).toBeInTheDocument();
 
     const link = screen.getByRole('link', { name: /Entry List/i });
-    expect(heading).toBeInTheDocument();
+    userEvent.click(link);
   });
 });
