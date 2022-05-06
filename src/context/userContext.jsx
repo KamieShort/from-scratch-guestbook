@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
     if (email === 'kamie@alchemy.com' && password === 'test123') {
       setUser({ email: 'kamie@alchemy.com' });
     } else {
-      throw new Error('Try again, invalid login credentials');
+      throw new Error('Try again, invalid login credentials.');
     }
   };
 

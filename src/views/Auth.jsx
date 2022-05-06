@@ -15,7 +15,6 @@ export default function Auth() {
       context.login(email, password);
     } catch (error) {
       setError(error.message);
-      console.log(error);
     }
   };
 
@@ -36,6 +35,7 @@ export default function Auth() {
           placeholder="password here"
         />
         <button type="submit">Go</button>
+        <p>{error}</p>
       </form>
     </>
   );
