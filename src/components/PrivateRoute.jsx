@@ -6,8 +6,6 @@ export default function PrivateRoute({ children, ...rest }) {
 
   const location = useLocation();
 
-  console.log(context);
-
   return (
     <Route {...rest}>
       {context.user.email ? (
