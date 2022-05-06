@@ -23,7 +23,7 @@ x Login view created 2
 x EntryList view created 2
 x Root path / uses a PrivateRoute 2
 x /auth renders the Login view 1
-PrivateRoute component redirects to /auth if no user is in context 1
+x PrivateRoute component redirects to /auth if no user is in context 1
 Guestbook entry uses the email stored in context for the name 2
 Behavior testing for EntryList view 2
 Deployed on Netlify with CI passing 1

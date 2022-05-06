@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useUserHook } from '../context/userContext';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const location = useLocation();
+  const context = useUserHook();
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
+      context.login(email, password);
+    } catch (error) {
+      setError(error.message);
+      console.log(error);
+    }
   };
-
-  console.log('location', location);
 
   return (
     <>
