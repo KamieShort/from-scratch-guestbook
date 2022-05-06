@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
   const [user, setUser] = useState(currentUser || { email: null });
 
   const newUser = async (email, password) => {
-    const authedUser = await signUpUser(email, password);
+    const authedUser = await signUpUser({ email, password });
     if (authedUser) {
       setUser(authedUser);
     }

@@ -24,7 +24,7 @@ export default function Auth() {
   const handleSignUp = async (e) => {
     try {
       e.preventDefault();
-      await context.newUser(email, password);
+      await context.newUser(newEmail, newPassword);
       history.push('/entryList');
     } catch (error) {
       setError(error.message);
