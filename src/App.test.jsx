@@ -21,5 +21,16 @@ describe('App', () => {
 
     const link = screen.getByRole('link', { name: /Entry List/i });
     userEvent.click(link);
+
+    const signUpHeading = screen.getByRole('heading', {
+      name: /sign up here!/i,
+    });
+    expect(signUpHeading).toBeInTheDocument();
+
+    const signInEmail = screen.findByPlaceholderText('email here');
+    userEvent.type(signInEmail, 'user@alchemy.com');
+
+    // const signInButton = screen.getByRole('button', { name: /go /i });
+    // userEvent.click(signInButton);
   });
 });
