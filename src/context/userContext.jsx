@@ -15,14 +15,6 @@ export function UserProvider({ children }) {
     }
   };
 
-  // const login = (email, password) => {
-  //   if (email === 'kamie@alchemy.com' && password === 'test123') {
-  //     setUser({ email: 'kamie@alchemy.com' });
-  //   } else {
-  //     throw new Error('Try again, invalid login credentials.');
-  //   }
-  // };
-
   const login = async (email, password) => {
     const authedUser = await signInUser({ email, password });
     if (authedUser) {
@@ -47,7 +39,7 @@ export const useUserHook = () => {
   const context = useContext(UserContext);
 
   if (context === undefined) {
-    throw new Error('useUserHook must be used within UserProvider');
+    // throw new Error('useUserHook must be used within UserProvider');
   }
   return context;
 };

@@ -8,6 +8,7 @@ export default function EntryList() {
 
   const [guestEntries, setGuestEntries] = useState([]);
   const [entry, setEntry] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const [submitted, setSubmitted] = useState({});
 
@@ -15,6 +16,7 @@ export default function EntryList() {
     const getGuestEntries = async () => {
       const data = await getEntries();
       setGuestEntries(data);
+      setLoading(false);
     };
     getGuestEntries();
   }, []);
@@ -39,17 +41,25 @@ export default function EntryList() {
     setEntry('');
   };
 
+  if (loading) return <div>Loading...</div>;
+
   return (
-    <div>
+    <>
       <h1>Entry List</h1>
-      <p>Signed in as {context.user.email}</p>
-      <ul>
-        {guestEntries.map((entry) => (
-          <li key={entry.id}>{entry.content}</li>
-        ))}
-      </ul>
-      <InputEntry {...{ entry, setEntry, submitEntry }} />
-      <button onClick={context.logout}>Logout</button>
-    </div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <p>Signed in as {context.user.email}</p>
+          <ul>
+            {guestEntries.map((entry) => (
+              <li key={entry.id}>{entry.content}</li>
+            ))}
+          </ul>
+          <InputEntry {...{ entry, setEntry, submitEntry }} />
+          <button onClick={context.logout}>Logout</button>
+        </div>
+      )}
+    </>
   );
 }
