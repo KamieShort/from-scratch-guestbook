@@ -17,5 +17,11 @@ describe('EntryList', () => {
 
     const heading = await screen.findByText('Entry List');
     expect(heading).toBeInTheDocument();
+
+    screen.getByPlaceholderText('new entry');
+
+    screen.getAllByRole('list');
+
+    screen.debug();
   });
 });

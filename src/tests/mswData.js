@@ -7,7 +7,7 @@ export const mswData = {
     id: '123456789',
     aud: 'authenticated',
     role: 'authenticated',
-    email: 'kamie@alchemy.com',
+    email: 'user@alchemy.com',
     email_confirmed_at: '2022-05-06T16:51:14.790505Z',
     phone: '',
     confirmed_at: '2022-05-06T16:51:14.790505Z',

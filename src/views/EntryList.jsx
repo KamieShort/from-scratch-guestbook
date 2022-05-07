@@ -15,6 +15,7 @@ export default function EntryList() {
   useEffect(() => {
     const getGuestEntries = async () => {
       const data = await getEntries();
+      console.log(data);
       setGuestEntries(data);
       setLoading(false);
     };

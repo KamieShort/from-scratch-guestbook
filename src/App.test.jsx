@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { setupServer } from 'msw/node';
-import { rest } from 'msw';
+
 import App from './App';
 import userEvent from '@testing-library/user-event';
 import { UserProvider } from './context/userContext';
@@ -27,10 +26,16 @@ describe('App', () => {
     });
     expect(signUpHeading).toBeInTheDocument();
 
-    const signInEmail = screen.getByPlaceholderText('sign-in email here');
+    const signInEmail = screen.getByPlaceholderText(/sign-in email here/i);
     userEvent.type(signInEmail, 'user@alchemy.com');
+
+    const passwordInput = screen.getByPlaceholderText(/old password here/i);
+    userEvent.type(passwordInput, 'test12345');
 
     const signInButton = screen.getByRole('button', { name: /submit/i });
     userEvent.click(signInButton);
+
+    // const entryText = await screen.findByText('alright');
+    // expect(entryText).toBeInTheDocument();
   });
 });
