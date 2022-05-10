@@ -22,7 +22,7 @@ export const mswData = {
         id: '123456789',
         user_id: '123456789',
         identity_data: {
-          sub: 'fc2f0371-9453-463d-97f6-565f02ea6b6c',
+          sub: '123456',
         },
         provider: 'email',
         last_sign_in_at: '2022-05-06T16:51:14.788845Z',

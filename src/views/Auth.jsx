@@ -45,7 +45,7 @@ export default function Auth() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="password here"
+          placeholder="old password here"
         />
         <button type="submit">Go</button>
         <p>{error}</p>
