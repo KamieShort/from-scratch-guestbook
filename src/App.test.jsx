@@ -1,33 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { setupServer } from 'msw/node';
-import { rest } from 'msw';
-import { mswData, mswDataEntries } from './tests/mswData';
 
 import App from './App';
 import userEvent from '@testing-library/user-event';
 import { UserProvider } from './context/userContext';
-
-// const server = setupServer(
-//   rest.post(
-//     'https://ezwbsacoojmonmiqffad.supabase.co/auth/v1/token',
-//     (req, res, ctx) => res(ctx.json(mswData))
-//   ),
-
-//   rest.get(
-//     'https://ezwbsacoojmonmiqffad.supabase.co/rest/v1/entries',
-//     (req, res, ctx) => res(ctx.json([mswDataEntries]))
-//   ),
-
-//   rest.post(
-//     'https://ezwbsacoojmonmiqffad.supabase.co/auth/v1/signup',
-//     (req, res, ctx) => res(ctx.json(mswData))
-//   )
-// );
-
-// beforeAll(() => server.listen());
-// afterEach(() => server.resetHandlers());
-// afterAll(() => server.close());
 
 describe('App', () => {
   it('Should render the list of entries', async () => {
@@ -61,9 +37,10 @@ describe('App', () => {
     });
     expect(entryHeading).toBeInTheDocument();
 
-    screen.getByPlaceholderText('new entry');
+    const input = screen.getByPlaceholderText('new entry');
+    expect(input).toBeInTheDocument();
 
-    // const entryText = await screen.findByText('alright');
-    // expect(entryText).toBeInTheDocument();
+    const newEntry = screen.findByText('alright');
+    userEvent.type(newEntry, 'alright');
   });
 });
