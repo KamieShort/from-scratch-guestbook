@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useUserHook } from '../context/userContext';
-import { getEntries, createEntry } from '../../src/services/entries';
+import {
+  getEntries,
+  createEntry,
+  deleteEntryById,
+} from '../../src/services/entries';
 import InputEntry from '../components/InputEntry';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function EntryList() {
   const context = useUserHook();
@@ -11,11 +16,12 @@ export default function EntryList() {
   const [loading, setLoading] = useState(true);
 
   const [submitted, setSubmitted] = useState({});
+  const { id } = useParams();
 
   useEffect(() => {
     const getGuestEntries = async () => {
       const data = await getEntries();
-      console.log(data);
+
       setGuestEntries(data);
       setLoading(false);
     };
@@ -42,6 +48,13 @@ export default function EntryList() {
     setEntry('');
   };
 
+  // const removeAll = async () => {
+  //   await deleteEntryById({ id });
+
+  //   const remove = await getEntries();
+  //   setSubmitted(remove);
+  // };
+
   if (loading) return <div>Loading...</div>;
 
   return (
@@ -54,13 +67,19 @@ export default function EntryList() {
           <p>Signed in as {context.user.email}</p>
           <ul>
             {guestEntries.map((entry) => (
-              <li key={entry.id}>{entry.content}</li>
+              <li key={entry.id}>
+                {entry.content}
+                <p>from {context.user.email}</p>
+              </li>
             ))}
           </ul>
           <InputEntry {...{ entry, setEntry, submitEntry }} />
           <button onClick={context.logout}>Logout</button>
         </div>
       )}
+      {/* <div>
+        <button onClick={removeAll}>Delete All!</button>
+      </div> */}
     </>
   );
 }

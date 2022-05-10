@@ -18,9 +18,9 @@ export default function App() {
           <EntryList />
         </PrivateRoute>
 
-        <Route path="/">
+        <PrivateRoute path="/">
           <Home />
-        </Route>
+        </PrivateRoute>
       </Switch>
     </div>
   );

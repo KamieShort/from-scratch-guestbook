@@ -29,7 +29,7 @@ describe('App', () => {
     const signInEmail = screen.getByPlaceholderText(/sign-in email here/i);
     userEvent.type(signInEmail, 'user@alchemy.com');
 
-    const passwordInput = screen.getByPlaceholderText(/old password here/i);
+    const passwordInput = screen.getByPlaceholderText(/password here/i);
     userEvent.type(passwordInput, 'test12345');
 
     const signInButton = screen.getByRole('button', { name: /submit/i });
